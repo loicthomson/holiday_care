@@ -68,6 +68,11 @@ export const SESSION_DATA: SessionData = {
             name: "One O'Clock club",
             address: 'Peggy Jay Centre, Parliament Hill Fields, Highgate Road, London NW5 1QR',
             session: [{ day: 'Weekdays', time: '13:00 - 15:00' }]
+        },
+        coramFields: {
+            name: "Coram Fields",
+            address: '93 Guilford Street, London WC1N 1DN',
+            session: [{ day: 'Weekdays', time: '9:30 - 12:30' }]
         }
     }
 };
