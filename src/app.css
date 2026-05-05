@@ -1,0 +1,77 @@
+@import '@drop-in/graffiti';
+
+:root {
+    --surface-bg: color-mix(in srgb, var(--paper, #fff) 84%, #e8f4ff 16%);
+    --card-bg: color-mix(in srgb, var(--paper, #fff) 88%, #f5fbff 12%);
+    --border-soft: color-mix(in srgb, var(--text, #111) 18%, transparent);
+    --hero-bg: radial-gradient(circle at 8% 12%, #d7ecff 0%, #f2f9ff 40%, #fff 100%);
+}
+
+body {
+    margin: 0;
+    background: var(--hero-bg);
+    min-height: 100vh;
+}
+
+.page-shell {
+    padding-block: 2rem 3.2rem;
+}
+
+.eyebrow {
+    margin: 0;
+    font-size: 0.86rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--text, #111) 64%, #0b7cc6 36%);
+}
+
+.lead {
+    margin: 0;
+    max-width: 62ch;
+    color: color-mix(in srgb, var(--text, #111) 84%, transparent);
+}
+
+.day-card {
+    padding: 1rem;
+    background: var(--surface-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.95rem;
+    box-shadow: 0 5px 20px rgba(14, 66, 114, 0.08);
+}
+
+.muted-text {
+    margin: 0;
+    opacity: 0.78;
+    font-size: 0.92rem;
+}
+
+.venue-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.venue-item {
+    padding: 0.8rem;
+    background: var(--card-bg);
+    border: 1px solid color-mix(in srgb, var(--text, #111) 14%, transparent);
+    border-radius: 0.75rem;
+}
+
+.recommended-venue {
+    background: color-mix(in srgb, #fff7c7 72%, var(--paper, #fff) 28%);
+    border-color: color-mix(in srgb, #d4aa00 38%, var(--text, #111) 10%);
+}
+
+.venue-item h3,
+.venue-item p {
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .page-shell {
+        padding-inline: 0.8rem;
+        padding-block: 1.2rem 2rem;
+    }
+}

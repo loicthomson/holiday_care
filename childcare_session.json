@@ -1,0 +1,82 @@
+{
+    "venues": {
+        "hampden": {
+            "name": "Hampden Children's Centre",
+            "address": "80 Polygon Road, London NW1 1HQ",
+            "session": [
+                {
+                    "day": "Tuesday",
+                    "time": "10:00 - 12:00"
+                }
+            ]
+        },
+        "agar": {
+            "name": "Agar Children's Centre and Family Hub",
+            "address": "Wrotham Road, London NW1 9SU",
+            "session": [
+                {
+                    "day": "Thursday",
+                    "time": "09:30 - 11:30"
+                }
+            ]
+        },
+        "regentsPark": {
+            "name": "Regent's Park Children's Centre and Family Hub",
+            "address": "Augustus Street, London NW1 3TJ",
+            "session": [
+                {
+                    "day": "Monday",
+                    "time": "09:30 - 11:30"
+                },
+                {
+                    "day": "Wednesday",
+                    "time": "09:30 - 11:30"
+                }
+            ]
+        },
+        "harmood": {
+            "name": "Harmood Children's Centre and Family Hub",
+            "address": "1 Forge Place, London NW1 8DQ",
+            "session": [
+                {
+                    "day": "Monday",
+                    "time": "13:30 - 15:00"
+                },
+                {
+                    "day": "Thursday",
+                    "time": "09:30 - 11:30"
+                }
+            ]
+        },
+        "kilburnGrange": {
+            "name": "Kilburn Grange Children's Centre and Family Hub",
+            "address": "1 Palmerston Road, London NW6 2JL",
+            "session": [
+                {
+                    "day": "Wednesday",
+                    "time": "09:30 - 11:30"
+                }
+            ]
+        },
+        "littleHaven": {
+            "name": "Little Haven",
+            "address": "Kings House, 242 Pentonville Road, London N1 9JY",
+            "session": [
+                {
+                    "day": "Monday",
+                    "time": "10:00 - 11:30"
+                }
+            ]
+        },
+        "shoeLane": {
+            "name": "Shoe Lane Library",
+            "address": "1 Little New St, London EC4A 3JR",
+            "session": [
+                {
+                    "day": "Weekdays",
+                    "time": "09:30 - 17:30"
+                }
+            ]
+        }
+    }
+}

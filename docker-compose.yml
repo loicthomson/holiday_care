@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_PATH: ""
+    ports:
+      - "8089:80"
+    restart: unless-stopped
