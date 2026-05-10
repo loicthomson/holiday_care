@@ -112,8 +112,8 @@
         <p class="eyebrow">Holiday Childcare</p>
         <h1>Weekday Sessions</h1>
         <p class="lead">
-            Sessions are grouped by day of the week so repeating weeks are easier
-            to scan.
+            Sessions are grouped by day of the week, highlighting recommended
+            venue for each day.
         </p>
     </header>
 
@@ -135,7 +135,10 @@
                     <ul class="stack venue-list" style="--gap: 0.75rem;">
                         {#each day.venues as venue (venue.id)}
                             <li
-                                class={["card venue-item stack", venue.recommended && "recommended-venue"]}
+                                class={[
+                                    "card venue-item stack",
+                                    venue.recommended && "recommended-venue",
+                                ]}
                                 style="--gap: 0.4rem;"
                             >
                                 <h3 class="fs-m">{venue.name}</h3>
