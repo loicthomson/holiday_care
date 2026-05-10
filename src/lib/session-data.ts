@@ -73,6 +73,14 @@ export const SESSION_DATA: SessionData = {
             name: "Coram Fields",
             address: '93 Guilford Street, London WC1N 1DN',
             session: [{ day: 'Weekdays', time: '9:30 - 12:30' }]
+        },
+        n1cCentre: {
+            name: "N1C Centre",
+            address: 'Ground floor Plimsoll Building, Handyside Street, London N1C YBQ',
+            session: [
+                { day: 'Monday', time: '10:00 - 12:00' },
+                { day: 'Thursday', time: '10:00 - 12:00' }
+            ]
         }
     }
 };

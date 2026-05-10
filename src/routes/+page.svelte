@@ -1,9 +1,8 @@
 <script lang="ts">
+    import { base } from "$app/paths";
     import { SESSION_DATA, type DayName, type Venue } from "$lib/session-data";
 
     type DaySchedule = {
-        isoDate: string;
-        label: string;
         dayName: DayName;
         venues: Array<{
             id: string;
@@ -21,12 +20,6 @@
         "Thursday",
         "Friday",
     ];
-
-    const DAY_LABEL_FORMATTER = new Intl.DateTimeFormat("en-GB", {
-        weekday: "long",
-        day: "numeric",
-        month: "short",
-    });
 
     function getStartMinutes(timeRange: string): number {
         const start = timeRange.split("-")[0]?.trim();
@@ -48,41 +41,8 @@
         return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
     }
 
-    function isWeekday(dayName: string): dayName is DayName {
-        return WEEKDAY_ORDER.includes(dayName as DayName);
-    }
-
-    function buildHolidayWeekdays(year: number): Date[] {
-        const days: Date[] = [];
-        const start = new Date(year, 5, 1);
-        const end = new Date(year, 5, 12);
-
-        for (
-            const date = new Date(start);
-            date <= end;
-            date.setDate(date.getDate() + 1)
-        ) {
-            const dayName = new Intl.DateTimeFormat("en-US", {
-                weekday: "long",
-            }).format(date);
-            if (isWeekday(dayName)) {
-                days.push(new Date(date));
-            }
-        }
-
-        return days;
-    }
-
-    function buildSchedule(
-        venues: Record<string, Venue>,
-        year: number,
-    ): DaySchedule[] {
-        const holidayDays = buildHolidayWeekdays(year);
-
-        return holidayDays.map((date) => {
-            const dayName = new Intl.DateTimeFormat("en-US", {
-                weekday: "long",
-            }).format(date) as DayName;
+    function buildSchedule(venues: Record<string, Venue>): DaySchedule[] {
+        return WEEKDAY_ORDER.map((dayName) => {
             const dayVenues = Object.entries(venues)
                 .map(([id, venue]) => {
                     const matchingSessions = venue.session.filter(
@@ -130,16 +90,13 @@
                 });
 
             return {
-                isoDate: date.toISOString().slice(0, 10),
-                label: DAY_LABEL_FORMATTER.format(date),
                 dayName,
                 venues: dayVenues,
             };
         });
     }
 
-    const year = new Date().getFullYear();
-    const schedule = buildSchedule(SESSION_DATA.venues, year);
+    const schedule = buildSchedule(SESSION_DATA.venues);
 </script>
 
 <svelte:head>
@@ -153,18 +110,18 @@
 <main class="layout-readable center stack page-shell" style="--gap: 1.25rem;">
     <header class="stack" style="--gap: 0.4rem;">
         <p class="eyebrow">Holiday Childcare</p>
-        <h1>Weekday Sessions: 1 Jun to 12 Jun {year}</h1>
+        <h1>Weekday Sessions</h1>
         <p class="lead">
-            Find the available venues and session times for each weekday in the
-            two-week holiday window.
+            Sessions are grouped by day of the week so repeating weeks are easier
+            to scan.
         </p>
     </header>
 
     <section class="layout-card" aria-label="Sessions by day">
-        {#each schedule as day (day.isoDate)}
+        {#each schedule as day (day.dayName)}
             <article class="card day-card stack" style="--gap: 0.7rem;">
                 <header class="stack" style="--gap: 0.25rem;">
-                    <h2 class="fs-l">{day.label}</h2>
+                    <h2 class="fs-l">{day.dayName}</h2>
                     <p class="muted-text">
                         {day.venues.length} venue{day.venues.length === 1
                             ? ""
@@ -187,7 +144,7 @@
                                     <a
                                         href={googleMapsUrl(venue.address)}
                                         target="_blank"
-                                        rel="noreferrer noopener"
+                                        rel="noreferrer noopener external"
                                         >View on Google Maps</a
                                     >
                                 </p>
