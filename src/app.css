@@ -10,6 +10,7 @@
 body {
     margin: 0;
     background: var(--hero-bg);
+    color: var(--text, #111);
     min-height: 100vh;
 }
 
@@ -62,6 +63,63 @@ body {
 .recommended-venue {
     background: color-mix(in srgb, #fff7c7 72%, var(--paper, #fff) 28%);
     border-color: color-mix(in srgb, #d4aa00 38%, var(--text, #111) 10%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --surface-bg: color-mix(in srgb, var(--paper, #0c141f) 86%, #1b2f48 14%);
+        --card-bg: color-mix(in srgb, var(--paper, #0c141f) 90%, #1d3855 10%);
+        --border-soft: color-mix(in srgb, #dcecff 34%, transparent);
+        --hero-bg: radial-gradient(circle at 8% 12%, #16283d 0%, #101a28 44%, #0b121c 100%);
+    }
+
+    body {
+        color: #eef4ff;
+    }
+
+    .eyebrow {
+        color: #9fd2ff;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    span {
+        color: inherit;
+    }
+
+    .lead {
+        color: #dce8f8;
+    }
+
+    .muted-text {
+        color: #c7d8ef;
+        opacity: 1;
+    }
+
+    a {
+        color: #8bd3ff;
+        text-decoration-thickness: 0.11em;
+        text-underline-offset: 0.12em;
+    }
+
+    a:hover,
+    a:focus-visible {
+        color: #bce8ff;
+    }
+
+    .recommended-venue {
+        background: color-mix(in srgb, #6f5400 58%, var(--paper, #0c141f) 42%);
+        border-color: color-mix(in srgb, #ffd659 66%, #cfe2f7 34%);
+    }
+
+    .tag.info {
+        background: #234869;
+        color: #eef6ff;
+        border-color: #7dc8ff;
+    }
 }
 
 .venue-item h3,
